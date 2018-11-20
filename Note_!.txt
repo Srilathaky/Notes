@@ -1,0 +1,11 @@
+JENKIN Notes:
+
+1.To Change the password:
+	Manage Jenkins-->Manage Users--->In password Section change the password and logout and login with
+	new credential.
+	
+2.If we want to disable the password:
+	Stop the Jenkins service
+	Open the config.xml with a text editor (notepad++), maybe be in C:\jenkins\config.xml
+	Find this <useSecurity>true</useSecurity> and change it to <useSecurity>false</useSecurity>
+	Start Jenkins service

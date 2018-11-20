@@ -1,0 +1,248 @@
+1.Enter the text “hello” into the textbox after converting it into Capital letters.
+Highlight the text in the textbox by clicking on it.
+Lastly, right-click to open the context menu. 
+
+
+// Handling Multiple Actions
+      Actions act = new Actions(driver);
+      Action seriesOfActions = act.moveToElement(userName).click().keyDown(userName, Keys.SHIFT)
+            .sendKeys(userName, "hello").keyUp(userName, Keys.SHIFT).doubleClick(userName).contextClick().build();
+      seriesOfActions.perform();
+
+
+2.http://www.techbeamers.com/latest-selenium-interview-questions-and-answers/
+
+
+
+Real Selenium Interview Questions For Automation TestingInterview Questions Selenium Interview Selenium Tutorial  Updated: April 10, 2018  Meenakshi Agarwal  selenium interview questions 
+
+ 
+Selenium has been the leading skill for automation testing from last many years. And yet there is even more demand for this technology. Not only browser automation but the companies are also using it for web scraping and data mining. Hence, we bring you the real Selenium interview questions to fill the gap between your knowledge and the interviewer’s expectations.
+
+The primary reason for Selenium popularity is its ability to integrate with mainstream languages like Java, Python, and C-Sharp. If you are comfortable with any of these technologies, then it would be a lot easier to learn Selenium.
+
+Many online classes are providing Selenium training to meet its increasing demand in the job market. It has become the must-have skill for automation test engineers. So, we recommend you carefully read all these Selenium interview questions as these have everything you should learn.
+
+If you have a thorough command of Selenium, then proceed directly to the question/answer section. However, if you like to build Selenium skill, then we highly recommend the following two posts.
+
+Selenium Webdriver Tutorial
+A Quick Selenium Quiz
+Real Selenium Interview Questions
+Real Selenium Interview Questions & Answers
+Selenium Interview Questions for Automation Testing
+
+Interviewer: What Is A Software Test Automation Framework?
+A test automation framework is a system of rules to guide a Software tester in automating the functional flows of a product or service. It intends to bring more efficiency in the Software testing process.
+
+The testing framework lays down the following rules or best practices.
+
+Flexibility in the selection of a programming language
+Generation of keywords and actions
+Definition of input sources (internal or external)
+Test case creation and design
+Labeling of test case for prioritization
+Manual or scripted execution
+History of test results
+Metrics such as test coverage/ code coverage
+Report generation
+CI tool integration such as Jenkins
+Multiplatform support
+A tester may not necessarily follow all these rules while creating test cases. But a modern-day test framework like Selenium can still let him/her write automated scripts with a little effort.
+
+Interviewer: What Do You Understand About Selenium?
+Selenium is a modern and continuously evolving test automation framework. It is the most frequently used tool for automated web testing. All leading browsers (Chrome, Firefox, IE) provide its support. It can run on all major platforms (Windows, Linux & Mac OS X). Moreover, the testers can choose from Java, Python or C# to use with Selenium. All of these traits bring high business value and make it a leader amongst the UI automation tools. Additionally, the factors like reusability and user-friendliness are also behind the popularity of this tool.
+
+Since inception in 2004, Selenium had seen two big releases including a few minor ones. Let’s step through them one by one.
+
+Selenium Remote Control (RC) – 1.0
+Selenium RC came out in early 2004. It included a client API set and a server to automate the browser.
+
+Selenium WebDriver – 2.0
+It was a big release of Selenium during the middle of 2011. It introduced an entirely new API set and replaced the old server with native driver calls. The new API also posed a challenge for automation testers to migrate from old API.
+
+Selenium WebDriver – 3.0
+Another major version, Selenium 3.0 saw the light towards the end of Yr. 2016. It enforced the W3C specifications for Webdriver APIs to make them a global standard. From this release, all browser vendors started delivering their custom version of web drivers.
+
+Interviewer: What Are The Pros/Advantages Of Using Selenium For Automation?
+Selenium is a time-proven test framework which can dramatically reduce the testing efforts. It equips with many useful features to make a tester’s life easier. Moreover, it can align with other tools to bring in more power.
+
+There are many benefits of using Selenium for automated testing.
+
+Open source: Since it is an OSS, so we don’t have to bear any licensing cost for using it.
+Cross-browser: It works on all standard browsers such as Chrome, FF, IE, and Safari. We can run same the test script in all browsers.
+Multi-language: We can choose a familiar programming language from Java, Python, C#, Ruby to use with Selenium.
+Cross-platform: It provides test compatibility across Window, Linux, and Mac OSX. We can run same the test script on all platforms.
+Concurrency: With Selenium Grid, we can execute thousands of test in parallel.
+CLI support: We can create a test suite with hundreds of tests and launch it with a single command.
+CI support: Jenkins is the best CI tool. It provides a Selenium plugin to configure tests for nightly execution.
+Free help: We can get quick technical help from its large community.
+Tester friendly: A non-programmer can also automate using Selenium. It is not too complicated to be used only by a programmer.
+Active project: Active development and bug fixes on the latest project.
+Interviewer: What Are The Cons/Limitations Of Using Selenium For Automation?
+Selenium is a perfect clinical tool to impersonate user actions in a browser. However, it also has a few limitations given below.
+
+Doesn’t support automation of Windows applications
+Can’t perform mobile automation on its own
+Lacks a good built-in reporting
+Not 100% perfect for handling dynamic web elements
+Poses challenges while processing popups or frames
+Not that efficient in coping with the page load
+Can’t automate a captcha
+Interviewer: What Are The Core Components Selenium Provides?
+Selenium is an automation development kit which comprises the following components.
+
+Selenium IDE:
+A Firefox extension to record and play the user actions performed on a web page.
+
+Selenium RC:
+A Selenium server which exposes APIs for scripting tests in different languages and also runs them in browsers.
+
+Selenium Webdriver:
+These are native APIs that directly interact with the browser. They give more control and faster than the RC APIs.
+
+
+ 
+Must Read – Selenium Performance Testing
+
+Selenium Grid:
+It provides concurrency. With its help, we can split testing and run a set of cases on one machine and some on another.
+
+Interviewer: What Is Selenium Server And How Is It Different From Selenium Hub?
+Selenium server is a standalone program which acts as an interface between the browser and the client. However, the Selenium hub works as a proxy for one or more Selenium test nodes.
+
+The combination of a hub and the node(s) represent a Selenium grid. Executing a Selenium server is equivalent to creating a Selenium grid with one Hub and a node on the same machine.
+
+Interviewer: What Are The Type Of Tests You Can Automate With Selenium?
+We can use Selenium for automating the following types of cases.
+
+Functional or Regression test cases
+Acceptance testing
+Sanity test cases
+Smoke testing
+End-to-end test cases
+Cross-browser tests
+Integration tests
+Responsive testing
+Interviewer: What Is Your Velocity Of Automating Tests Per Sprint?
+There is no simple rule to compute the velocity of test case automation per sprint. The following factors influence how many tests we can automate.
+
+Our product or feature knowledge
+The complexity of the feature
+The probability of unknowns
+However, my average velocity comes around ~(30-50) test cases in a 2-week sprint, i.e., 3-5 cases per day.
+
+Interviewer: What Types Of Automated Testing Frameworks Do You Know?
+Mainly, there are six standard types of testing frameworks. Each of these has some benefits as well as a few limitations. So, you must pick the right one based on your test requirements.
+
+Linear Automation Testing Framework: It is a simple record-play framework.
+Modular-Based Testing Framework: It works by splitting the AUT (Application Under Test) into small units. Each of them gets tested in isolation before running all of them inside a batch script.
+Library-Based Testing Framework: It slices up the application testing into distinct areas having the same objectives/functions/features. After that, a library gets formed including these functions. The test scripts can call the library methods as needed.
+Data-driven Testing Framework: It segregates the test data from the script logic, expecting the testers to store it externally. The test scripts can request the external data source, read and fetch the required data depending on the use case.
+Keyword-driven Testing Framework: It allows keywords to perform actions on the test input. The tester can define them in an object repo where the framework can find and take action.
+Hybrid Test Automation Framework: It is a mixture of the previously mentioned frameworks intended to utilize the pros of some and overcome the limitations of others.
+Interviewer: What Type Of Test Framework Either You Used Or Created? Please Explain.
+While replying to such questions, stay focused and keep your answer short and crisp. You can start by telling about the different components in your framework and then explain them one by one.
+
+Here is an illustration for your help.
+
+I worked on a framework built on top of the Page Factory framework.
+I’ve created a page class for every web page in my application. It keeps the objects and the handler functions.
+Every page class has a followup test class where I create tests for related use cases.
+I used separate packages to host the pages and their test classes. It’s a best practice to do that way.
+The framework also had a lib package for utility and some standard wrapper functions over Selenium APIs.
+Java is core programming language used for this project. It was primarily because the team had previous Java experience. Also, we could utilize the TestNG annotations and report feature.
+Most test cases are data-driven. They require input from the external data source. So, I used Java property/POI class to read from the CSV/XLS files.
+We used TestNG group feature for labeling test cases as P1, P2, and P3.
+The Log4J library provided the necessary support for tracing in our project.
+Instead of using the TestNG reporting, we preferred the Extent report. It has more graphical options and gives an in-depth analysis of the results.
+We built the framework with the help of Maven. Also, Jenkins provided support for automated build and execution.
+Bitbucket allowed us to manage our source code using git repositories.
+
+
+
+
+
+
+TestNG Annotations and Their Meaning
+@BeforeSuite: The annotated method runs before all tests in this suite.
+
+@BeforeTest: The annotated method runs before test classes.
+
+@BeforeGroups: The annotated method runs before the group’s tests.
+
+@BeforeClass: The annotated method runs before the first test method which belongs to any of the test groups.
+
+@BeforeMethod: The annotated method runs before each test method.
+
+@Test: The annotated method is a test method. It executes the test.
+
+@AfterMethod: The annotated method runs after each test method.
+
+@AfterClass: The annotated method runs after all the test methods in the current test class.
+
+@AfterGroups: The annotated method runs after the last test method which belongs to any of the test groups.
+
+@AfterTest: The annotated method runs after test classes.
+
+@AfterSuite: The annotated method runs after all tests.
+
+Suite > Test > Class > Method
+
+
+
+
+
+
+What is JavaScript
+JavaScript is one of the programming languages of the Web.
+
+All modern HTML pages are using JavaScript.
+
+
+
+Javascript in Selenium Webdriver and Different usage
+
+ 
+Hello, Welcome to Selenium Tutorials in this post we will see how we can introduce Javascript in Selenium Webdriver and what are the usage?
+
+What is JavaScript
+JavaScript is one of the programming languages of the Web.
+
+All modern HTML pages are using JavaScript.
+
+For more details, you can refer Wikipedia – JavaScript
+
+ 
+
+Use of Javascript in Selenium Webdriver
+We have used Java in our script and we implemented almost all feature but some features we can’t handle using Java so we need scripting language also which can control server side or client side scripting so we will use JavaScript in our Selenium script.
+
+
+Implement JavaScript in Selenium Webdriver
+To execute JavaScript in our webdriver script we do not have to write the separate code we have one predefined interface available.
+
+JavascriptExecutor is an Interface which is available in package org.openqa.selenium.JavascriptExecutor;
+
+
+Inside this Interface we have some predefined method called executeScript()- so whatever script you will pass as a String  It will be executed by JavascriptExecutor.
+
+
+
+###Broken Links:Refer Guru99
+https://www.guru99.com/find-broken-links-selenium-webdriver.html
+
+
+
+
+What is Gecko Driver?
+The term Gecko stands for a Web Browser engine that is inbuilt within Mozilla Firefox browser. Gecko driver acts as a proxy between Web Driver enabled clients(Eclipse, Netbeans, etc.) and Mozilla Firefox browser. In short, Gecko driver acts as a link between Selenium Web Driver tests and Mozilla Firefox browser.
+
+Before Selenium 3, Mozilla Firefox browser was the default browser for Selenium. After Selenium 3, testers need to initialize the script to use Firefox using GeckoDriver explicitly. Selenium uses W3C Webdriver protocol to send requests to GeckoDriver, which translates them into a protocol named Marionette. Firefox will understand the commands transmitted in the form of Marionette protocol and executes them.
+
+ 
+
+
+Advantage of using Gecko Driver
+Selenium Webdriver version 2.53 is not compatible with Mozilla Firefox version 47.0+. The Firefox driver used in earlier versions of Mozilla Firefox will be discontinued, and only the GeckoDriver implementation would be used. Hence testers are forced to use GeckoDriver if they want to run automated tests on Mozilla Firefox version 47.0+. But the big question - what is the advantage?
+
+The major advantage of using GeckoDriver as opposed to the default Firefox driver is Compatibility. GeckoDriver uses W3C WebDriver protocol to communicate with Selenium. W3C is a universally defined standard for Web Driver. This means Selenium Developers (People who code Selenium base) need not create a new version of Web Driver for each browser version. The same Web Driver can be used for multiple browser versions. Hence, GeckoDriver is preferred compared to the earlier implementation of Firefox driver.

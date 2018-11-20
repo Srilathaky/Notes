@@ -1,0 +1,85 @@
+API stands for Application Programming Interface. It comprises of a set of functions that can be accessed 
+and executed by another software system.  Thus, it serves as an interface between different software systems 
+and establishes their interaction and data exchange.
+
+What is API Testing?
+In the modern development world, many web applications are designed based on three-tier architecture model. These are:
+
+1) Presentation Tier – User Interface (UI)
+
+2) Logic Tier – Business logic is written in this tier. It is also called Business Tier. (API)
+
+3) Data Tier – Here information and data is stored and retrieved from a Database. (DB)
+
+Ideally, these three layers (tiers) should not know anything about the platform, technology, 
+and structure of each other. We can test UI with GUI testing tools and we can test logic tier (API) with 
+API testing tools. Logic tier comprises of all of the business logic and it has more complexity than the 
+other tiers and the test executed on this tier is called as API Testing.
+
+API testing tests logic tier directly and checks expected functionality, reliability, performance, 
+and security. In the agile development world, requirements are changing during short release cycles f
+requently and GUI tests are more difficult to maintain according to those changes. Thus, API testing becomes 
+critical to test application logic.
+
+In GUI testing we send inputs via keyboard texts, button clicks, drop-down boxes, etc., 
+on the other hand in API testing we send requests (method calls) to the API and get output (responses). 
+These APIs are generally REST APIs or SOAP web services with JSON or XML message payloads being sent over 
+HTTP, HTTPS, JMS, and MQ.
+
+A web service is a collection of open protocols and standards used for exchanging data between 
+applications or systems.
+
+Software applications written in various programming languages and running on various platforms can use web services to exchange data over 
+computer networks like the Internet in a manner similar to inter-process communication on a single computer.
+This interoperability (e.g., between Java and Python, or Windows and Linux applications) is due to the use of open standards.
+
+A RESTful web service usually defines a URI (Uniform Resource Identifier), which is a service that provides resource representation such as JSON and a set of HTTP Methods.
+
+
+GET- The GET method is used to extract information from the given server using a given URI. While using GET request, it should only extract data and should have no other effect on the data.
+POST- A POST request is used to create new entity. It can also be used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+PUT- Create a new entity or update an existing one.
+DELETE- Removes all current representations of the target resource given by a URI.
+
+
+Rest API can be tested with tools like:
+
+Advanced Rest Client
+Postman-Rest Client
+Curl in Linux
+
+Validating the results
+Mainly, for Api Testing, we need to check response code, a response message, and response body.
+
+
+
+ 
+
+
+
+HTTP Request is a packet of Information that one computer sends to another computer to communicate something. To its core, HTTP Request is a packet of binary data sent by the Client to server. An HTTP Request contains following parts
+
+Request Line
+Headers, 0 or more Headers in the request
+An optional Body of the Request
+
+Headers are used to pass additional information about the request to the server.
+
+
+AUTENTICATION
+
+ 
+
+
+HEADERS
+
+ 
+
+BODY
+ 
+
+
+HTTP Response is the packet of information sent by Server to the Client in response to an earlier Request made by Client. HTTP Response contains the information requested by the Client.
+
+
+ 

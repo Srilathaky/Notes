@@ -1,0 +1,224 @@
+1.ls -a--->Hidden files(starts with '.'(period symbol).
+2.cat--->used to create,display,copy and combine text files.
+3.cat > file1(To create a file)then it will ask to enter content then we can save
+	using ctrl+d command.
+4.cat file1(to diplay the file)
+5.cat file1 file2 >newfile(To combile file1 and file2 to create new file)
+6.Only text files can be used in cat.
+7.To rename thefile :rm filee1 file2
+8.rmdir dir1--to remove the directrory.
+9.mv to rename the directory.
+10.Man--Manual(Reference book for linux)
+	man ls---gives information about the ls command.
+11.History command:Commands have used in the past.
+12.Clear command:
+13.ls -R list subdiretories
+
+
+
+GREP COMMAND:
+
+grep a search command that makes use of pattern-based searching. It makes use of options and parameters that are specified along with the command line and applies this pattern in searching the required file output.
+
+1. Case insensitive search : The -i option enables to search for a string case insensitively in the give file. It matches the words like “UNIX”, “Unix”, “unix”.
+
+$grep -i "UNix" geekfile.txt
+
+2.Displaying the count of number of matches : We can find the number of lines that matches the given string/pattern
+
+$grep -c "unix" geekfile.txt
+
+3. Display the file names that matches the pattern : We can just display the files that contains the given string/pattern.
+
+$grep -l "unix" *
+
+or
+ 
+$grep -l "unix" f1.txt f2.txt f3.xt f4.txt
+
+4. Checking for the whole words in a file : By default, grep matches the given string/pattern even if it found as a substring in a file. The -w option to grep makes it match only the whole words.
+
+$ grep -w "unix" geekfile.txt
+
+5. Displaying only the matched pattern : By default, grep displays the entire line which has the matched string. We can make the grep to display only the matched string by using the -o option.
+
+$ grep -o "unix" geekfile.txt
+
+6. Show line number while displaying the output using grep -n : To show the line number of file with the line matched.
+
+$ grep -n "unix" geekfile.txt
+
+7. Inverting the pattern match : You can display the lines that are not matched with the specified search sting pattern using the -v option.
+
+$ grep -v "unix" geekfile.txt
+
+8. Matching the lines that start with a string : The ^ regular expression pattern specifies the start of a line. This can be used in grep to match the lines which start with the given string or pattern.
+
+$ grep "^unix" geekfile.txt
+
+9. Matching the lines that end with a string : The $ regular expression pattern specifies the end of a line. This can be used in grep to match the lines which end with the given string or pattern.
+
+$ grep "os$" geekfile.txt
+
+10.Specifies expression with -e option. Can use multiple times :
+
+$grep –e "Agarwal" –e "Aggarwal" –e "Agrawal" geekfile.txt
+
+43) How do you terminate an ongoing process?
+
+Every process in the system is identified by a unique process id or pid. Use the kill command followed by the pid to terminate that process. To terminate all process at once, use kill 0.
+
+
+Order Files Based on Last Modified Time Using ls -lt
+
+ls -lt : To sort the file names displayed in the order of last modification time.You will be finding it handy to use it in combination with -l option.
+
+7. Order Files Based on Last Modified Time (In Reverse Order) Using ls -ltr
+
+$ ls -ltr : To sort the file names in the last modification time in reverse order. This will be showing the last edited file in the last line which will be handy when the listing goes beyond a page.
+
+
+ What is the command to calculate the size of a folder?
+
+To calculate the size of a folder uses the command du –sh folder1.
+
+
+3) What is a typical syntax being followed when issuing commands in shell?
+
+Typical command syntax under the UNIX shell follows the format:
+Command [-argument] [-argument] [–argument] [file]
+
+
+
+26) What is a superuser?
+
+A superuser is a special type user who has open access to all files and commands on a system. Note that the superuser’s login is usually root, and is protected by a so-called root password.
+
+
+29) What is the standard convention being followed when naming files in UNIX?
+
+One important rule when naming files is that characters that have special meaning are not allowed, such as * / & and %. A directory, being a special type of file, follows the same naming convention as that of files. Letters and numbers are used, along with characters like underscore and dot characters.
+
+
+
+32) Differentiate cat command from more command.
+
+When using the cat command to display file contents, large data that does not fit on the screen would scroll off without pausing, therefore making it difficult to view. On the other hand, using the more command is more appropriate in such cases because it will display file contents one screen page at a time.
+
+
+34) What is pid?
+
+Pid is short for Process ID. It is used primarily to identify every process that runs on the UNIX system, whether it runs on the foreground or runs in the background. Every pid is considered unique.
+
+35) How does the system know where one command ends and another begins?
+
+Normally, the newline character, which is generated by the ENTER or RETURN key, acts as the signpost. However, the semicolon and the ampersand characters can also serve as command terminators.
+
+
+
+
+Reference:https://www.tecmint.com/ls-interview-questions/
+
+
+
+36). How do you find whether your system is 32 bit or 64 bit ?
+Either by using "uname -a" command or by using "arch" command.
+
+
+Read more: https://javarevisited.blogspot.com/2011/05/unix-command-interview-questions.html#ixzz5KHstnIRr
+
+
+
+37)It is a bridge between applications and the actual data processing done at the hardware level.
+
+38)The Shell
+The shell is the interface between you and Linux. We issue commands through the command line interface which is interpreted and passed on to the kernel for processing. When we log onto the computer the shell will automatically start. It will then monitor the terminal for any commands.
+
+39)su – Substitute user. 
+
+40)The highest-level directory is called the root directory. It’s designated with a single slash. Unlike Windows, there are no different disks or drives; the root directory is the highest-level directory for all Linux systems. Underneath the root directory are more, sub-directories.
+
+41)The lib directory contains system libraries, while the var directory contains all of the files on your system that are likely to change, such as your logs and your mail messages. 
+
+42)r: read
+w: write
+x: execute
+-: no permission
+
+43)Installing SoftwarePermalink
+Like most things in Linux, installing software is accomplished by typing and executing a specific text command. The most popular Linux distributions come with package managers that make it relatively easy to install and uninstall software on your Linode. Debian and Ubuntu use the Advanced Packaging Tool (APT) package manager, and Fedora and CentOS use the Yellowdog Updater, Modified (yum) package manager.
+	apt-get install software
+	apt-get install apache2
+	apt-get update
+	apt-get upgrade --show-upgraded
+
+	apt-get remove software
+If you also want to remove all configuration files associated with the software, run this command instead:
+
+apt-get purge software
+44)What are User and Group Permissions?Permalink
+Linux/Unix operating systems have the ability to multitask in a manner similar to other operating systems. However, Linux’s major difference from other operating systems is its ability to have multiple users. Linux was designed to allow more than one user to have access to the system at the same time. In order for this multiuser design to work properly, there needs to be a method to protect users from each other. This is where permissions come in to play.
+
+Permissions are the “rights” to act on a file or directory. The basic rights are read, write, and execute.
+
+45)Viewing File PermissionsPermalink
+To view the permissions on a file or directory, issue the command ls -l <directory/file>. Remember to replace the information in the < > with the actual file or directory name. Below is sample output for the ls command:
+
+-rw-r--r-- 1 root root 1031 Nov 18 09:22 /etc/passwd
+The first ten characters show the access permissions. The first dash (-) indicates the type of file (d for directory, s for special file, and - for a regular file). The next three characters (rw-) define the owner’s permission to the file. In this example, the file owner has read and write permissions only. The next three characters (r–) are the permissions for the members of the same group as the file owner (which in this example is read only). The last three characters (r–) show the permissions for all other users and in this example it is read only.
+
+46)Sudo and su are two different ways to gain root privileges. Each functions in a different way, and different Linux distributions use different configurations by default.
+
+47)The Root User
+Both su and sudo are used to run commands with root permissions. The root user is basically equivalent to the administrator user on Windows – the root user has maximum permissions and can do anything to the system. Normal users on Linux run with reduced permissions – for example, they can’t install software or write to system directories.
+
+To do something that requires these permissions, you’ll have to acquire them with su or sudo.
+
+48)CHMOD:
+https://www.linode.com/docs/tools-reference/linux-users-and-groups/
+
+49)
+
+An octal table showing the numeric equivalent for permissions is provided below.
+
+Numeric permissions table.
+
+ 
+ 
+
+
+
+
+
+What is Redirection?
+Redirection is a feature in Linux such that when executing a command, you can change the standard input/output devices. The basic workflow of any Linux command is that it takes an input and give an output.
+
+The standard input (stdin) device is the keyboard.
+The standard output (stdout) device is the screen.
+With redirection, the above standard input/output can be changed.
+
+In this tutorial, we will learn-
+
+Output Redirection
+Input redirection
+File Descriptors (FD)
+Error Redirection
+Why Error Redirection?
+Examples
+
+Output Redirection
+The '>' symbol is used for output (STDOUT) redirection.
+
+Redirection in Linux/Unix - Demystified!
+
+Example:
+
+ls -al > listings
+Here the output of command ls -al is re-directed to file "listings" instead of your screen.
+
+Note: Use the correct file name while redirecting command output to a file. If there is an existing file with the same name, the redirected command will delete the contents of that file and then it may be overwritten."
+
+
+
+Use find to search for a file or directory on your file system
+If you do not want a file to be overwritten but want to add more content to an existing file, then you should use '>>' operator.

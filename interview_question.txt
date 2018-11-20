@@ -1,0 +1,799 @@
+Reference:http://www.techbeamers.com/sql-query-questions-answers-for-practice/
+
+
+1.Grant and Revoke Command.
+2. SELECT VERSION ();
+3.MyISAM is the default table that is based on the sequential access method.
+https://www.w3schools.in/mysql/ddl-dml-dcl/
+
+GRANT - allow users access privileges to database
+REVOKE - withdraw users access privileges given by using the GRANT command
+
+
+GROUP BY:
+1.select gender from customer_details group by gender;
+-----it will give the all the different genders present in the DB.
+Eg:
+	Null
+
+	Male
+	Female
+
+2.select gender,group_concat(cust_id) from customer_details group by gender;
+	-------it will display cust id corresponds to each gender
+
+Eg:
+gender  group_concat(cust_id)
+	3,5,39,45,49,50,57,66,67,78,79,83,90,91,103,105,107,111,112,141,146,147,156,171,176,180,182,185,188,198,210,215,218,229,241,259,262,264,285,286,288,290,293,301,304,312,323,349,351,353,357,359,360,370,372,376,378,379,380,383,386,388,389,390,395,399,405,40...
+	98973,98974,92752,92934,93123,97465,61789,63366,64085,65533,65949,38290,39055,8,25,202,337,516,1041,1359,1524,1567,1741,1822,1871,2083,2222,2477,3844,6004,6124,6166,6752,7117,9887,10924,11040,11252,15309,15379,15565,17504,18521,18859,18889,19296,19558,20...
+Female	77151,77153,77154,77155,77165,77167,77169,77170,77177,77178,77183,77184,77185,77188,77190,77192,77193,77195,77198,77211,77214,77217,77221,77229,77230,77232,77233,77237,77238,77239,77241,77243,77252,77255,77256,77257,77259,77262,77263,77264,77268,77270,77...
+Male	52174,52194,52209,52217,52226,52240,52243,52247,52255,52258,52277,52281,52290,52302,52309,52310,52315,52319,52324,52330,52333,52341,52349,52355,52356,52370,52372,52398,52411,52414,52419,52422,52423,52426,52427,52437,52443,52450,52458,52460,52466,52471,52...
+
+
+
+3.select cust_id,group_concat(offer_id) as offer from offer_subscription group by cust_id having offer='1,2';
+
+
+it will display ust_id anf offer_id by group only cust_id having offer_id 1 and offer_id 2
+
+
+cust_id   offer
+3	 1,2
+8	 1,2
+25	 1,2
+39	 1,2
+45	 1,2
+
+
+
+4. query to fetch only the first name(string before space) from the FullName column :
+
+Eg:fname=test fname;
+select substring_index(fname,' ' ,1) from customer_details where cust_id=100405;
+ will return test
+select substring_index(fname,' ' ,-1) from customer_details where cust_id=100405;
+ will return fname
+
+fname=test cust name
+select substring_index(fname,' ' ,1) from customer_details where cust_id=100405;
+------->test
+select substring_index(fname,' ' ,2) from customer_details where cust_id=100405;
+------->test cust
+select substring_index(fname,' ' ,3) from customer_details where cust_id=100405;
+------->test cust name
+
+(1,2,3)--represents 1st match,2nd match and 3rd match with space.
+
+
+
+5.select * from customer_details cd where exists (select * from updated_cover_level up where cd.cust_id=up.cust_id);
+
+
+
+6.Query to find duplicate Records:
+select cust_id from offer_subscription group by cust_id having count(cust_id)>1;
+
+
+7.select a record for odd empid:
+select * from  offer_subscription where cust_id%2=1 limit 100;
+
+
+8.create a new table with data and structure copied from another table.
+SELECT * INTO newTable FROM EmployeeDetails;
+
+
+9.create an empty table with same structure as some other table.
+CREATE TABLE newTable LIKE EmployeeDetails; 
+
+
+
+10.Nth highest salary in MySQL using LIMIT clause:
+SELECT salary FROM Employee  ORDER BY Salary DESC LIMIT n-1,1
+
+select * from  offer_subscription  order by cust_id desc limit 3,1;
+(4th highest)-----(3rd row one record.(0,1,2,3rd row))
+
+11.Select Version().
+12.select CURRENT_DATE();
+
+13.
+What is MySQL Safe Mode?
+MySQL will refuse to run the UPDATE or DELETE query if executed without the WHERE clause or LIMIT clause. MySQL will also refuse the query which have WHERE clause but there is no condition with the KEY column.
+
+So below query will also be refused if safe mode is enabled:
+
+  UPDATE table_name SET bDeleted=0 WHERE name='xyz';
+How to disable MySQL Safe Mode?
+There is a simple way to disable the MySQL Safe Mode. We can disable it with simple query.
+
+Have a look at below query:
+
+  SET SQL_SAFE_UPDATES=0;
+
+14.Delete a row
+delete from cover_history where cust_id=96063 limit 1;
+
+
+15How do you login to MySQL using Unix shell?
+
+mysql -h fiji-rds-01.sg.bimamobile.internal -P 3306 -u mipread -pWeT8VuX73z9PPnxGDTkmqr6R
+
+		host name			port	user		password
+
+16What are the column comparisons operators?
+Ans.
+
+The =, <>, <=, <, >=, >, <<, >>, <=>, AND, OR, or LIKE operators are used in column comparisons in SELECT statements
+
+17.What do you mean by % and _ in the LIKE statement?
+Ans.
+
+% corresponds to 0 or more characters. But _ is exactly one character in the LIKE statement.
+
+18.select user with db null:
+select * from customer_details where isnull(dob)
+
+19.Normalization is a database design technique which organizes tables in a manner that reduces redundancy and dependency of data.
+
+It divides larger tables to smaller tables and links them using relationships.
+
+In this tutorial, you will learn-	
+20.LEFT string function accepts the the parameter and only returns 4 characters from the left.
+
+
+dob=1985-01-26
+select left(dob) from customer_details limit 1;
+1985
+
+
+21.
+Escape keyword.
+The ESCAPE keyword is used to escape pattern matching characters such as the (%) percentage and underscore (_) if they form part of the data.
+
+ Let's suppose that we want to check for the string "67%" we can use;
+
+LIKE '67#%%' ESCAPE '#';
+If we want to search for the movie "67% Guilty", we can use the script shown below to do that.
+
+SELECT * FROM movies WHERE title LIKE '67#%%' ESCAPE '#';
+Note the double "%%" in the LIKE clause, the first one in red "%" is treated as part of the string to be searched for. The other one is used to match any number of characters that follow.
+
+The same query will also work if we use something like
+
+SELECT * FROM movies WHERE title LIKE '67=%%' ESCAPE '=';
+
+
+22.MYSQL FUNCTIONS:
+	DATE_FORMAT(date)
+	UCASE(String str)
+	select min(year(dob)) from customer_details;
+
+23.MAX('year_released')
+
+24.AVG('amount_paid')
+
+
+
+25.
+MySQL IS NULL & IS NOT NULL Tutorial with Examples
+
+Null as a Value
+In simple terms, NULL is simply a place holder for data that does not exist. When performing insert operations on tables, they will be times when some  field values will not be available. 
+
+NULL is not a data type - this means it is not recognized as an "int", "date" or any other defined data type.
+Arithmetic operations involving NULL always return NULL for example, 69 + NULL = NULL.
+All aggregate functions affect only rows that do not have NULL values.
+
+
+26.SELECT * FROM `members` WHERE contact_number IS NOT NULL;
+
+27.SELECT * FROM `members` WHERE contact_number IS NULL;
+
+select null is null(output =1)(Refer:https://www.guru99.com/null.html)
+
+
+What is auto increment?
+Auto Increment is a function that operates on numeric data types. It automatically generates sequential numeric values every time that a record is inserted into a table for a field defined as auto increment.
+
+
+TO SHOW THE COLUMN:
+SHOW COLUMNS FROM `members`;
+
+ALTER TABLE `members` ADD COLUMN `credit_card_number` VARCHAR(25);
+ALTER TABLE `members` DROP COLUMN `credit_card_number`;
+
+RENAME TABLE `current_table_name` TO `new_table_name`;
+
+
+CHANGE KEYWORD
+Change Keywords allows you to
+
+Change Name of Column
+Change Column Data Type
+Change Column Constraints
+
+ALTER TABLE `members` CHANGE COLUMN `full_names` `fullname` char(250) NOT NULL;
+
+MODIFY KEYWORD
+ 
+
+The MODIFY Keyword allows you to
+
+Modify Column Data Type
+Modify Column Constraints
+
+ALTER TABLE `members`MODIFY `fullname` char(50) NOT NULL;
+
+AFTER KEYWORD
+Suppose that we want to add a new column at a specific position in the  table.
+
+We can use the alter command together with the AFTER keyword.
+
+ALTER TABLE  `members` ADD  `date_of_registration` date NULL AFTER  `date_of_birth`;
+
+
+Write a query to find out all records from a user table ordering them first all inactive users, then active users, then pending.
+
+SELECT uname, status FROM users ORDER BY FIELD(status, 'inactive','active','pending');
+
+(REference https://www.letsknowit.com/mysql-questions)
+How to get comma seperated values in a given column for each group. If we have a table that contains StudentId and subject ID and we need to get subject id's in comma seperated values for each student Id
+IF we have below table 
+
+ 
+ 
+ 
+we  need to use GROUP_CONCAT for it and our SQL query is :
+ 
+SELECT  studentId,GROUP_CONCAT(SubjectId) as subjects FROM student GROUP BY  studentId
+
+
+https://www.letsknowit.com/mysql-questions
+
+
+
+
+select locate('a' ,fname) from customer_details where fname='umair' limit 1;
+
+select POSITION('a' in fname) from customer_details where fname='umair' limit 1;
+
+select lower(fname)FROM mip_pk18.customer_details limit 10;
+select upper(fname)FROM mip_pk18.customer_details limit 10;
+
+
+
+Write SQL Query that will interchange the values of gender column Ie. if gender is male then update it to female and if gender is female update to male
+UPDATE employee set gender = (case gender when 'female' then 'male'
+else 'female' end);
+
+
+
+
+
+
+Q-28. Write An SQL Query To Clone A New Table From Another Table.
+Ans.
+
+The general query to clone a table with data is:
+
+SELECT * INTO WorkerClone FROM Worker;
+The general way to clone a table without information is:
+
+SELECT * INTO WorkerClone FROM Worker WHERE 1 = 0;
+An alternate way to clone a table (for MySQL) without is:
+
+CREATE TABLE WorkerClone LIKE Worker;
+
+
+
+Q-34. Write An SQL Query To Determine The 5th Highest Salary Without Using TOP Or Limit Method.
+Ans.
+
+The following query is using the correlated subquery to return the 5th highest salary:
+
+SELECT Salary
+FROM Worker W1
+WHERE 4 = (
+ SELECT COUNT( DISTINCT ( W2.Salary ) )
+ FROM Worker W2
+ WHERE W2.Salary >= W1.Salary
+ );
+Use the following generic method to find nth highest salary without using TOP or limit.
+
+SELECT Salary
+FROM Worker W1
+WHERE n-1 = (
+ SELECT COUNT( DISTINCT ( W2.Salary ) )
+ FROM Worker W2
+ WHERE W2.Salary >= W1.Salary
+ );
+
+
+
+50 SQL Query Questions And Answers For PracticeInterview Questions QA Interview SQL Interview  Updated: January 29, 2018  Meenakshi Agarwal  sql interview questions 
+
+ 
+If you want to improve SQL skills, then install a SQL package like MySQL and start practicing with it. To get you started, we’ve outlined a few SQL query questions in this post.
+
+Solving practice questions is the fastest way to learn any subject. That’s why we’ve selected a set of 50 SQL queries that you can use to step up your learning. We’ve also given SQL scripts to create the test data. So, you can use them to create test database and tables.
+
+Most of the SQL query questions we’ve filtered out of interviews held by top IT MNC like Flipkart and Amazon. So you’ll gain real-time experience by going through them.
+
+Also, we recommend that you first try to form queries by yourself rather than just reading them from the post. Try to find answers on your own.
+
+But you can’t start until the required sample data is not in place. You can check out the tables below that we’ve provided for practice. So first of all, you need to create the test data in your database software.
+
+By the way, we have a bunch of other posts available for SQL interview preparation. So if you are interested, then follow the link given below.
+
+
+?? Most Frequently Asked SQL Interview Questions.
+
+Let’s Begin Learning SQL.
+50 SQL Query Questions
+50 SQL Query Questions
+
+Prepare Sample Data To Practice SQL Skill.
+Sample Table – Worker
+WORKER_ID	FIRST_NAME	LAST_NAME	SALARY	JOINING_DATE	DEPARTMENT
+001	Monika	Arora	100000	2014-02-20 09:00:00	HR
+002	Niharika	Verma	80000	2014-06-11 09:00:00	Admin
+003	Vishal	Singhal	300000	2014-02-20 09:00:00	HR
+004	Amitabh	Singh	500000	2014-02-20 09:00:00	Admin
+005	Vivek	Bhati	500000	2014-06-11 09:00:00	Admin
+006	Vipul	Diwan	200000	2014-06-11 09:00:00	Account
+007	Satish	Kumar	75000	2014-01-20 09:00:00	Account
+008	Geetika	Chauhan	90000	2014-04-11 09:00:00	Admin
+Sample Table – Bonus
+WORKER_REF_ID	BONUS_DATE	BONUS_AMOUNT
+1	2016-02-20 00:00:00	5000
+2	2016-06-11 00:00:00	3000
+3	2016-02-20 00:00:00	4000
+1	2016-02-20 00:00:00	4500
+2	2016-06-11 00:00:00	3500
+Sample Table – Title
+WORKER_REF_ID	WORKER_TITLE	AFFECTED_FROM
+1	Manager	2016-02-20 00:00:00
+2	Executive	2016-06-11 00:00:00
+8	Executive	2016-06-11 00:00:00
+5	Manager	2016-06-11 00:00:00
+4	Asst. Manager	2016-06-11 00:00:00
+7	Executive	2016-06-11 00:00:00
+6	Lead	2016-06-11 00:00:00
+3	Lead	2016-06-11 00:00:00
+To prepare the sample data, you can run the following queries in your database query executor or on the SQL command line. We’ve tested them with MySQL Server 5.7 and MySQL Workbench 6.3.8 query browser. You can also download these Softwares and install them to carry on the SQL exercise.
+
+SQL Script To Seed Sample Data.
+CREATE DATABASE ORG;
+SHOW DATABASES;
+USE ORG;
+
+CREATE TABLE Worker (
+	WORKER_ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	FIRST_NAME CHAR(25),
+	LAST_NAME CHAR(25),
+	SALARY INT(15),
+	JOINING_DATE DATETIME,
+	DEPARTMENT CHAR(25)
+);
+
+INSERT INTO Worker 
+	(WORKER_ID, FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VALUES
+		(001, 'Monika', 'Arora', 100000, '14-02-20 09.00.00', 'HR'),
+		(002, 'Niharika', 'Verma', 80000, '14-06-11 09.00.00', 'Admin'),
+		(003, 'Vishal', 'Singhal', 300000, '14-02-20 09.00.00', 'HR'),
+		(004, 'Amitabh', 'Singh', 500000, '14-02-20 09.00.00', 'Admin'),
+		(005, 'Vivek', 'Bhati', 500000, '14-06-11 09.00.00', 'Admin'),
+		(006, 'Vipul', 'Diwan', 200000, '14-06-11 09.00.00', 'Account'),
+		(007, 'Satish', 'Kumar', 75000, '14-01-20 09.00.00', 'Account'),
+		(008, 'Geetika', 'Chauhan', 90000, '14-04-11 09.00.00', 'Admin');
+
+CREATE TABLE Bonus (
+	WORKER_REF_ID INT,
+	BONUS_AMOUNT INT(10),
+	BONUS_DATE DATETIME,
+	FOREIGN KEY (WORKER_REF_ID)
+		REFERENCES Worker(WORKER_ID)
+        ON DELETE CASCADE
+);
+
+INSERT INTO Bonus 
+	(WORKER_REF_ID, BONUS_AMOUNT, BONUS_DATE) VALUES
+		(001, 5000, '16-02-20'),
+		(002, 3000, '16-06-11'),
+		(003, 4000, '16-02-20'),
+		(001, 4500, '16-02-20'),
+		(002, 3500, '16-06-11');
+CREATE TABLE Title (
+	WORKER_REF_ID INT,
+	WORKER_TITLE CHAR(25),
+	AFFECTED_FROM DATETIME,
+	FOREIGN KEY (WORKER_REF_ID)
+		REFERENCES Worker(WORKER_ID)
+        ON DELETE CASCADE
+);
+
+INSERT INTO Title 
+	(WORKER_REF_ID, WORKER_TITLE, AFFECTED_FROM) VALUES
+ (001, 'Manager', '2016-02-20 00:00:00'),
+ (002, 'Executive', '2016-06-11 00:00:00'),
+ (008, 'Executive', '2016-06-11 00:00:00'),
+ (005, 'Manager', '2016-06-11 00:00:00'),
+ (004, 'Asst. Manager', '2016-06-11 00:00:00'),
+ (007, 'Executive', '2016-06-11 00:00:00'),
+ (006, 'Lead', '2016-06-11 00:00:00'),
+ (003, 'Lead', '2016-06-11 00:00:00');
+Once above SQL would run, you’ll see a result similar to the one attached below.
+
+SQL Query Questions - Creating Sample Data
+Creating Sample Data to Practice SQL Skill.
+
+50 SQL Query Questions And Answers For Practice.
+Q-1. Write An SQL Query To Fetch “FIRST_NAME” From Worker Table Using The Alias Name As <WORKER_NAME>.
+Ans.
+
+The required query is:
+
+Select FIRST_NAME AS WORKER_NAME from Worker;
+ 
+
+Q-2. Write An SQL Query To Fetch “FIRST_NAME” From Worker Table In Upper Case.
+Ans.
+
+The required query is:
+
+Select upper(FIRST_NAME) from Worker;
+ 
+
+Q-3. Write An SQL Query To Fetch Unique Values Of DEPARTMENT From Worker Table.
+Ans.
+
+The required query is:
+
+
+ 
+Select distinct DEPARTMENT from Worker;
+ 
+
+Q-4. Write An SQL Query To Print First Three Characters Of  FIRST_NAME From Worker Table.
+Ans.
+
+The required query is:
+
+Select substring(FIRST_NAME,1,3) from Worker;
+ 
+
+Q-5. Write An SQL Query To Find The Position Of The Alphabet (‘A’) In The First Name Column ‘Amitabh’ From Worker Table.
+Ans.
+
+The required query is:
+
+Select INSTR(FIRST_NAME, BINARY'a') from Worker where FIRST_NAME = 'Amitabh';
+Notes.
+
+The INSTR method is in case-sensitive by default.
+Using Binary operator will make INSTR work as the case-sensitive function.
+ 
+
+Q-6. Write An SQL Query To Print The FIRST_NAME From Worker Table After Removing White Spaces From The Right Side.
+Ans.
+
+The required query is:
+
+Select RTRIM(FIRST_NAME) from Worker;
+ 
+
+Q-7. Write An SQL Query To Print The DEPARTMENT From Worker Table After Removing White Spaces From The Left Side.
+Ans.
+
+The required query is:
+
+Select LTRIM(DEPARTMENT) from Worker;
+ 
+
+Q-8. Write An SQL Query That Fetches The Unique Values Of DEPARTMENT From Worker Table And Prints Its Length.
+Ans.
+
+The required query is:
+
+Select distinct length(DEPARTMENT) from Worker;
+ 
+
+Q-9. Write An SQL Query To Print The FIRST_NAME From Worker Table After Replacing ‘A’ With ‘A’.
+Ans.
+
+The required query is:
+
+Select REPLACE(FIRST_NAME,'a','A') from Worker;
+ 
+
+Q-10. Write An SQL Query To Print The FIRST_NAME And LAST_NAME From Worker Table Into A Single Column COMPLETE_NAME. A Space Char Should Separate Them.
+Ans.
+
+The required query is:
+
+Select CONCAT(FIRST_NAME, ' ', LAST_NAME) AS 'COMPLETE_NAME' from Worker;
+ 
+
+Q-11. Write An SQL Query To Print All Worker Details From The Worker Table Order By FIRST_NAME Ascending.
+Ans.
+
+The required query is:
+
+Select * from Worker order by FIRST_NAME asc;
+ 
+
+Q-12. Write An SQL Query To Print All Worker Details From The Worker Table Order By FIRST_NAME Ascending And DEPARTMENT Descending.
+Ans.
+
+The required query is:
+
+Select * from Worker order by FIRST_NAME asc,DEPARTMENT desc;
+ 
+
+Q-13. Write An SQL Query To Print Details For Workers With The First Name As “Vipul” And “Satish” From Worker Table.
+Ans.
+
+The required query is:
+
+Select * from Worker where FIRST_NAME in ('Vipul','Satish');
+ 
+
+Q-14. Write An SQL Query To Print Details Of Workers Excluding First Names, “Vipul” And “Satish” From Worker Table.
+Ans.
+
+The required query is:
+
+Select * from Worker where FIRST_NAME not in ('Vipul','Satish');
+ 
+
+Q-15. Write An SQL Query To Print Details Of Workers With DEPARTMENT Name As “Admin”.
+Ans.
+
+The required query is:
+
+Select * from Worker where DEPARTMENT like 'Admin%';
+ 
+
+Q-16. Write An SQL Query To Print Details Of The Workers Whose FIRST_NAME Contains ‘A’.
+Ans.
+
+The required query is:
+
+Select * from Worker where FIRST_NAME like '%a%';
+ 
+
+Q-17. Write An SQL Query To Print Details Of The Workers Whose FIRST_NAME Ends With ‘A’.
+Ans.
+
+The required query is:
+
+Select * from Worker where FIRST_NAME like '%a';
+ 
+
+Q-18. Write An SQL Query To Print Details Of The Workers Whose FIRST_NAME Ends With ‘H’ And Contains Six Alphabets.
+Ans.
+
+The required query is:
+
+Select * from Worker where FIRST_NAME like '_____h';
+ 
+
+Q-19. Write An SQL Query To Print Details Of The Workers Whose SALARY Lies Between 100000 And 500000.
+Ans.
+
+The required query is:
+
+Select * from Worker where SALARY between 100000 and 500000;
+ 
+
+Q-20. Write An SQL Query To Print Details Of The Workers Who Have Joined In Feb’2014.
+Ans.
+
+The required query is:
+
+Select * from Worker where year(JOINING_DATE) = 2014 and month(JOINING_DATE) = 2;
+ 
+
+Q-21. Write An SQL Query To Fetch The Count Of Employees Working In The Department ‘Admin’.
+Ans.
+
+The required query is:
+
+SELECT COUNT(*) FROM worker WHERE DEPARTMENT = 'Admin';
+ 
+
+Q-22. Write An SQL Query To Fetch Worker Names With Salaries >= 50000 And <= 100000.
+Ans.
+
+The required query is:
+
+SELECT CONCAT(FIRST_NAME, ' ', LAST_NAME) As Worker_Name, Salary
+FROM worker 
+WHERE WORKER_ID IN 
+(SELECT WORKER_ID FROM worker 
+WHERE Salary BETWEEN 50000 AND 100000);
+ 
+Q-23. Write An SQL Query To Fetch The No. Of Workers For Each Department In The Descending Order.
+Ans.
+
+The required query is:
+
+SELECT DEPARTMENT, count(WORKER_ID) No_Of_Workers 
+FROM worker 
+GROUP BY DEPARTMENT 
+ORDER BY No_Of_Workers DESC;
+ 
+Q-24. Write An SQL Query To Print Details Of The Workers Who Are Also Managers.
+Ans.
+
+The required query is:
+
+SELECT DISTINCT W.FIRST_NAME, T.WORKER_TITLE
+FROM Worker W
+INNER JOIN Title T
+ON W.WORKER_ID = T.WORKER_REF_ID
+AND T.WORKER_TITLE in ('Manager');
+ 
+
+Q-25. Write An SQL Query To Fetch Duplicate Records Having Matching Data In Some Fields Of A Table.
+Ans.
+
+The required query is:
+
+SELECT WORKER_TITLE, AFFECTED_FROM, COUNT(*)
+FROM Title
+GROUP BY WORKER_TITLE, AFFECTED_FROM
+HAVING COUNT(*) > 1;
+ 
+Q-26. Write An SQL Query To Show Only Odd Rows From A Table.
+Ans.
+
+The required query is:
+
+SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) <> 0;
+ 
+
+Q-27. Write An SQL Query To Show Only Even Rows From A Table.
+Ans.
+
+The required query is:
+
+SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) = 0;
+ 
+Q-28. Write An SQL Query To Clone A New Table From Another Table.
+Ans.
+
+The general query to clone a table with data is:
+
+SELECT * INTO WorkerClone FROM Worker;
+The general way to clone a table without information is:
+
+SELECT * INTO WorkerClone FROM Worker WHERE 1 = 0;
+An alternate way to clone a table (for MySQL) without is:
+
+CREATE TABLE WorkerClone LIKE Worker;
+ 
+
+Q-29. Write An SQL Query To Fetch Intersecting Records Of Two Tables.
+Ans.
+
+The required query is:
+
+(SELECT * FROM Worker)
+INTERSECT
+(SELECT * FROM WorkerClone);
+ 
+
+Q-30. Write An SQL Query To Show Records From One Table That Another Table Does Not Have.
+Ans.
+
+The required query is:
+
+SELECT * FROM Worker
+MINUS
+SELECT * FROM Title;
+ 
+
+Q-31. Write An SQL Query To Show The Current Date And Time.
+Ans.
+
+Following MySQL query returns the current date:
+
+SELECT CURDATE();
+Following MySQL query returns the current date and time:
+
+SELECT NOW();
+Following SQL Server query returns the current date and time:
+
+SELECT getdate();
+Following Oracle query returns the current date and time:
+
+SELECT SYSDATE FROM DUAL;
+ 
+
+Q-32. Write An SQL Query To Show The Top N (Say 10) Records Of A Table.
+Ans.
+
+Following MySQL query will return the top n records using the LIMIT method:
+
+SELECT * FROM Worker ORDER BY Salary DESC LIMIT 10;
+Following SQL Server query will return the top n records using the TOP command:
+
+SELECT TOP 10 * FROM Worker ORDER BY Salary DESC;
+Following Oracle query will return the top n records with the help of ROWNUM:
+
+SELECT * FROM (SELECT * FROM Worker ORDER BY Salary DESC)
+WHERE ROWNUM <= 10;
+ 
+
+Q-33. Write An SQL Query To Determine The Nth (Say N=5) Highest Salary From A Table.
+Ans.
+
+The following MySQL query returns the nth highest salary:
+
+SELECT Salary FROM Worker ORDER BY Salary DESC LIMIT n-1,1;
+The following SQL Server query returns the nth highest salary:
+
+SELECT TOP 1 Salary
+FROM (
+ SELECT DISTINCT TOP n Salary
+ FROM Worker 
+ ORDER BY Salary DESC
+ )
+ORDER BY Salary ASC;
+ 
+
+Q-34. Write An SQL Query To Determine The 5th Highest Salary Without Using TOP Or Limit Method.
+Ans.
+
+The following query is using the correlated subquery to return the 5th highest salary:
+
+SELECT Salary
+FROM Worker W1
+WHERE 4 = (
+ SELECT COUNT( DISTINCT ( W2.Salary ) )
+ FROM Worker W2
+ WHERE W2.Salary >= W1.Salary
+ );
+Use the following generic method to find nth highest salary without using TOP or limit.
+
+SELECT Salary
+FROM Worker W1
+WHERE n-1 = (
+ SELECT COUNT( DISTINCT ( W2.Salary ) )
+ FROM Worker W2
+ WHERE W2.Salary >= W1.Salary
+ );
+ 
+
+Q-35. Write An SQL Query To Fetch The List Of Employees With The Same Salary.
+Ans.
+
+The required query is:
+
+Select distinct W.WORKER_ID, W.FIRST_NAME, W.Salary 
+from Worker W, Worker W1 
+where W.Salary = W1.Salary 
+and W.WORKER_ID != W1.WORKER_ID;
+ 
+
+Q-36. Write An SQL Query To Show The Second Highest Salary From A Table.
+Ans.
+
+The required query is:
+
+Select max(Salary) from Worker 
+where Salary not in (Select max(Salary) from Worker);
+ 
+
+
+Write SQL Query that will interchange the values of gender column Ie. if gender is male then update it to female and if gender is female update to male
+UPDATE employee set gender = (case gender when 'female' then 'male'
+
+else 'female' end);
+
+
+
+Query to replace the content in mysql. 
+
+mysql> update admin_config set data_val=replace(data_val,'coaching-service','CoachingProgrameService') where id >18;

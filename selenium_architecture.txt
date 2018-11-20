@@ -1,0 +1,36 @@
+Selenium is a suite of tools which automates browser or we can say automates the control of browser.
+
+As I have told earlier that selenium is not a tool. It’s a suite of tools. It consists of Selenium IDE, Selenium RC, Selenium Grid and Selenium Webdriver.
+
+In this post, I will discuss about architecture of Selenium Webdriver.
+
+Selenium supports many languages like Java, C#, Python etc. We can run our automated test scripts across different platforms and browsers. So, question is how selenium Webdriver does this?
+
+First learn what is API??
+
+An application programming interface (API) is a particular set of rules (‘code’) and specifications that software programs can follow to communicate with each other. It serves as an interface between different software programs and facilitates their interaction, similar to the way the user interface(UI) facilitates interaction between humans and computers.
+
+Selenium Webdriver is also a well-designed object oriented API which helps in communication between languages and browsers.
+
+We have many programming languages like JAVA, C#, Python etc. and a programmer can write code using any language. To automate browser, a programmer needs to understand the logic of browsers.
+
+Every browser has different logic of performing actions like loading a page, closing the browser etc. Some browsers are open source or some are not. Open source means we can see the code and can edit as well. But all browsers are not open source.  So, programmer can’t see code of all browsers and it is not possible to automate as well.
+
+Here is the place, where selenium webdriver makes an entry. Selenium makes it possible for programmer to communicate with browsers through Webdriver. Every browser has provided a driver through which communication to browser is possible.
+
+Refer below picture for pictorial representation:
+
+
+ 
+
+
+Language binding: To support multiple languages, selenium people has developed language bindings. If you want to use the browser driver in Java, use the Java bindings for Selenium Webdriver. If you want to use the browser driver in C#, Ruby or Python, use the binding for that language. All language binding can be downloaded from selenium official website.
+Selenium Webdriver: It is an API which makes possible to communication between programming languages and browsers. It follows object oriented concepts. It has multiple classes and interfaces.
+Browser drivers: A browser driver can be considered as a personal secretary of a boss. A browser drivers helps in communication with browser without revealing the internal logic of browser�s functionality. The browser driver is the same regardless of the language used for automation.
+When the automation script is executed, the following steps are done internally:
+
+A HTTP request is created and sent to browser driver for each selenium instruction or commands.
+A browser driver receives the HTTP request through HTTP server.
+HTTP server decides all steps to perform instructions which are executed on browser.
+Execution status is sent back to HTTP server which is sent back to automation script.
+I tried to explain in easy words. If you have any doubts, suggestions or feedback, please comment.

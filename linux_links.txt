@@ -1,0 +1,29 @@
+https://www.sanfoundry.com/unix-questions-answers-introduction-unix/
+https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/
+https://www.thegeekstuff.com/2011/01/regular-expressions-in-grep-command/
+https://www.thegeekstuff.com/2011/01/regular-expressions-in-grep-command/
+https://www.thegeekstuff.com/2011/01/regular-expressions-in-grep-command/
+https://www.sanfoundry.com/unix-questions-answers-introduction-unix/
+https://career.guru99.com/shell-scripting-interview-questions/
+https://www.tecmint.com/interview-questions-on-shell-scripting/
+https://www.techbeamers.com/20-shell-scripting-questions-answers/
+https://www.tecmint.com/18-tar-command-examples-in-linux/
+https://www.cyberciti.biz/faq/linux-unix-displaying-files-in-shell-script/
+https://www.unix.com/shell-programming-and-scripting/38139-count-number-occurence-perticular-word-file.html
+http://www.learnshell.org/en/Basic_String_Operations
+https://www.thegeekstuff.com/2010/07/bash-string-manipulation
+https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/
+https://www.hackerrank.com/challenges/bash-tutorials---comparing-numbers/problem
+
+http://www.lagmonster.org/docs/vi2.html----->FOR vi IN LINUX
+
+
+https://srvfail.com/how-to-provide-ssh-password-inside-a-script-or-oneliner/----expect script
+
+
+http://www.dailyfreecode.com/Code/counts-number-line-number-words-number-454.aspx
+http://clubmate.fi/replace-strings-in-files-with-the-sed-bash-command/ 
+http://www.dailyfreecode.com/Code/shell-script-perform-string-replacement-1661.aspx
+
+
+NETSTAT:https://geekflare.com/netstat/
