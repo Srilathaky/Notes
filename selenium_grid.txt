@@ -10,3 +10,4 @@ http://172.25.3.25:4444/grid/register -port 5555
 
 
 Note:This is the hub IP.http://172.25.3.25:4444/grid/register
+we can specify the browser and platform name as required.
